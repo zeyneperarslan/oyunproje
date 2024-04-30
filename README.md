@@ -6,7 +6,8 @@
   Sıradaki oyuncu eşleşmeyi sağladığında kazandığına dair bir bilgi mesajı verilir ve oyun yeniden oynanmak üzere sıfırlanır.
 
 OYUN TANITIM VİDEOSU:
- https://www.youtube.com/watch?v=_JmJ5_jAO_4
+ https://www.youtube.com/watch?v=_JmJ5_jAO_4 
+
 
 OYUNA AİT GÖRSELLER:
 <img width="573" alt="Ekran Resmi 2024-04-30 19 48 19" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/7928bf84-2fc6-4844-aefa-3146ac80866f">
