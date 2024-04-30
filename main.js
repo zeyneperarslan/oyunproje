@@ -1,0 +1,1 @@
+let oyun = new Game(document)
