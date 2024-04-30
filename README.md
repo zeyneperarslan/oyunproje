@@ -1,4 +1,4 @@
-                                             <span style="color:red">ŞEKİLLERİ EŞLEŞTİR</span>
+                                            <b> ŞEKİLLERİ EŞLEŞTİR </b>
 
   Oyun 4x4’lük bir tablo üstünden oynanmaktadır . 2 kişilik olan bu oyunun amacı, aynı şekilleri üçlü kombinasyonlar halinde eşleştirerek puan kazanmaktır. 
   Şekillerimiz yıldız (✯) ve kalptir (♥). 
