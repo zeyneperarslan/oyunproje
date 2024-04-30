@@ -1,6 +1,6 @@
                                            ŞEKİLLERİ EŞLEŞTİR 
 
-  Oyun 4x4’lük bir tablo üstünden oynanmaktadır . 2 kişilik olan bu oyunun amacı, aynı şekilleri üçlü kombinasyonlar halinde yatay/dikey/çağraz şekilde eşleştirerek puan kazanmaktır. 
+  "Şekilleri Eşleştir" adlı oyun 4x4’lük bir tablo üstünden oynanmaktadır . 2 kişilik olan bu oyunun amacı, aynı şekilleri üçlü kombinasyonlar halinde yatay/dikey/çağraz şekilde   eşleştirerek puan kazanmaktır. 
   Şekillerimiz yıldız (✯) ve kalptir (♥). 
   Çok kolay bir arayüz olan oyun , başlangıçta kullancıya “hoşgeldiniz” mesajı verir ardından da oyundaki hedef aktarılır. 
   Sıradaki oyuncu eşleşmeyi sağladığında kazandığına dair bir bilgi mesajı verilir ve oyun yeniden oynanmak üzere sıfırlanır.
