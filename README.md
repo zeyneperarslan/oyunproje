@@ -5,10 +5,13 @@
   Çok kolay bir arayüz olan oyun , başlangıçta kullancıya “hoşgeldiniz” mesajı verir ardından da oyundaki hedef aktarılır. 
   Sıradaki oyuncu eşleşmeyi sağladığında kazandığına dair bir bilgi mesajı verilir ve oyun yeniden oynanmak üzere sıfırlanır.
 
-<img width="1309" alt="Ekran Resmi 2024-04-30 19 04 34" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/41fb85d4-ba27-49d0-b3d8-7b1be6b4aad9">
-<img width="717" alt="Ekran Resmi 2024-04-30 19 12 52" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/638217cc-aca1-49b4-b638-2afb7859eba6">
 
-<img width="749" alt="Ekran Resmi 2024-04-30 19 12 20" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/fac56de3-ed9d-4972-873e-f8f3312e7007">
+<img width="717" alt="Ekran Resmi 2024-04-30 19 18 59" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/5e4c2a75-12c4-4b83-ac77-891134f02d89">
+
+<img width="717" alt="Ekran Resmi 2024-04-30 19 18 46" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/a2f95e74-622b-4a20-834f-ec298a068f37">
+
+<img width="717" alt="Ekran Resmi 2024-04-30 19 19 30" src="https://github.com/zeyneperarslan/webtabanliprogramlamaproje/assets/120674682/82b0df1a-5a05-4e43-8ea9-4f05f5605cdd">
+
 
 
 
