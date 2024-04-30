@@ -6,7 +6,7 @@
   Sıradaki oyuncu eşleşmeyi sağladığında kazandığına dair bir bilgi mesajı verilir ardından oyun yeniden oynanmak üzere sıfırlanır.
 
 OYUN TANITIM VİDEOSU:
- https://www.youtube.com/watch?v=_JmJ5_jAO_4 
+ https://www.youtube.com/watch?v=Abj0m2mCzuc
 
 
 OYUNA AİT GÖRSELLER:
