@@ -1,15 +1,15 @@
 class Game
 {
-   constructor(document)
+   constructor(document)  //yapıcı metod tanımlandı böylelikle HTML dokumanına erişim sağlandı.
    { 
     this.document = document
-     this.turn = "✯"
-     this.oyunskoru= {
+     this.turn = "✯"     //oyuna başlayan yıldız olarak belirlendi.
+     this.oyunskoru= {   //başlangıçtaki oyunskoru 0-0 olarak belirlendi
        YILDIZ:0,
         KALP:0
      }
     
-     this.kazanmaDurumu = [
+     this.kazanmaDurumu = [  //tum olasi eslesmelerin kombinasyonlari yazildi.
 
 [0, 1, 2], 
 [1, 2, 3],
@@ -40,14 +40,14 @@ class Game
      
      this.board = new Array(16).fill(null)
 
-   alert("Oyuna Hoşgeldin!!!!");
-   alert("Aynı şekilleri üçlü olacak şekilde eşleştir puanı kazan!!")
+   alert("Oyuna Hoşgeldin!!!!");   
+   alert("Aynı şekilleri üçlü olacak şekilde eşleştir puanı kazan!!")  //oyun başlamadan kullanıcıya oyun bilgisi verildi
 
 
 
      this.document.querySelectorAll('.kutu').forEach ( kutu => {
-        kutu.addEventListener('click' , () => {
-            this.hucreDoldur(kutu)
+        kutu.addEventListener('click' , () => {  //kutu sınıfına ait ögeler seçildi ve tıklama olayı eklenir.
+            this.hucreDoldur(kutu)     // hucreDoldur fonksiyonu çağırılır ve tıklanan hücrenin doldurulması gerçekleştirilir.
 
         })
 
@@ -57,98 +57,98 @@ class Game
 
     }
 
-   nextTurn()  {
+   nextTurn()  {  //oynama sırasını kontrol eder.
     
-    this.turn = this.turn === '✯' ? '♥' : '✯'
-    this.ekranaYazdir()
+    this.turn = this.turn === '✯' ? '♥' : '✯'  //this.turn değerini kontrol eder. Eğer this.turn değişkeni '✯' karakterine eşitse, değeri '♥' olarak değiştirir değilse, değeri '✯' olarak değiştirir.
+    this.ekranaYazdir()   // ekranaYazdir metodu çağırılır.
 
    }
 
    hucreDoldur(kutu) {
-      if (this.board[kutu.dataset.i] === null) {
-          this.board[kutu.dataset.i] = this.turn;
+      if (this.board[kutu.dataset.i] === null) {   //hücrelerin boş olup olmadığı kontrol edilir.
+          this.board[kutu.dataset.i] = this.turn; //eğer hücre boşsa hamle yapılarak doldurulur.
           this.boardYazdir();
       } else {
-          alert('Bu hücre zaten dolu! Lütfen başka bir hücre seçin.');
+          alert('Bu hücre zaten dolu! Lütfen başka bir hücre seçin.');  //eğer doluysa oyunu oynayan kullanıcıya uyarı verilir.
       }
   }
 
    boardYazdir () {
    
-    this.board.forEach((value, i) => {
- this.document.querySelector(`.kutu[data-i="${i}"]`).innerText = value
+    this.board.forEach((value, i) => {   // this.board dizisindeki her bir eleman için döngü oluşturuldu.Her elemanın değeri value değişkenine atanır,elemanın dizideki indeksi ise i değişkenine atanır.
+ this.document.querySelector(`.kutu[data-i="${i}"]`).innerText = value //kutu sınıfından olan ve data-i'si i ile eşleşen ögeyi seçer ve bu öğenin içeriğini value ile günceller. 
 
 
     })
 
-    this.kazananKontrol()
+    this.kazananKontrol()  //kazanan var mı yok mu kontrol eder.
 
    } 
 
 
    ekranaYazdir() {
 
-    this.document.getElementById('turn').innerText = this.turn
+    this.document.getElementById('turn').innerText = this.turn   //id'si turn olan öğeyi seçti ve bu öğenin içeriğini this.turn değişkeninin değeriyle değiştirildi.
    }
 
-   skorDurumu(){
-  
+   skorDurumu(){    //güncel oyun skorunu oyunu oynayan kullanıclara göstermek amacıyla oluşturuldu.
+   
     this.document.querySelector('.oyunskoru').innerText = ` ✯ ${this.oyunskoru.YILDIZ} - ${this.oyunskoru.KALP} ♥`
 
    }
 
   kazananKontrol()
    { 
-     let kazanan = null
+     let kazanan = null  
      this.kazanmaDurumu.forEach((kombinasyonlar)   => {
 
         const [c1,c2,c3] = kombinasyonlar
 
-        if(this.board[c1]=== '✯' && this.board[c2]=== '✯' && this.board[c3]=== '✯' ){
+        if(this.board[c1]=== '✯' && this.board[c2]=== '✯' && this.board[c3]=== '✯' ){ //yıldızların üçlü olarak eşleşip eşleşmediği kontrol edildi.
             
-            kazanan = 'YILDIZ'
+            kazanan = 'YILDIZ'  //eğer eşleşiyorsa kazanan yıldız olarak belirlendi.
         }
 
-        else if(this.board[c1] === '♥' && this.board[c2] === '♥' && this.board[c3] === '♥'){
+        else if(this.board[c1] === '♥' && this.board[c2] === '♥' && this.board[c3] === '♥'){     //kalplerin üçlü olarak eşleşip eşleşmediği kontrol edildi.
 
-            kazanan = 'KALP'
+            kazanan = 'KALP'                 //eğer eşleşiyorsa kazanan yıldız olarak belirlendi.
         }
 
     
      })
 
-     if(kazanan) {
-        this.oyunskoru[kazanan]++
-        this.skorDurumu()
-        alert(`KAZANAN: ${kazanan}`)
-        this.yenidenBasla()
+     if(kazanan) { //kazanan olup olmadığı kontrol edildi.
+        this.oyunskoru[kazanan]++          // Eğer bir kazanan varsa, oyunskoru objesindeki ilgili oyuncunun skoru 1 arttırıldı.
+        this.skorDurumu()                 // skorDurumu fonksiyonu çağırılarak skor durumu güncellendi.
+        alert(`KAZANAN: ${kazanan}`)     //kazanan bilgisi kullanıcıya verildi.
+        this.yenidenBasla()             // yenidenBasla fonksiyonu çağırılarak oyun yeniden başlatıldı.
      }
 
     else{
 
-        this.berabereDurum()
+        this.berabereDurum() 
 
      }
    }
 
    berabereDurum()
    {
-    if(!this.board.includes(null))
+    if(!this.board.includes(null))  // boş hücre yoksa oyun berabere biter.
     {
         alert(`DURUM:BERABERE`)
-        this.yenidenBasla()
+        this.yenidenBasla()     // kullanıcıya bilgi verildikten sonra oyun yeniden başlatıldı.
     }  
     else {
-        this.nextTurn()
+        this.nextTurn()  // Eğer boş hücre varsa bir sonraki oyuncunun turunu başlatmak için nextTurn fonksiyonu çağırıldı.
     
     }
    }
 
-   yenidenBasla(){
-    this.turn = "✯"
-   this.board = new Array(16).fill(null)
-    this.ekranaYazdir()
-    this.boardYazdir()
+   yenidenBasla(){    
+    this.turn = "✯"                        //Oyuna tekrardan başlayan "✯" olarak ayarlandı.
+   this.board = new Array(16).fill(null)  //oyundaki hücreler sıfırlandı.Yeniden oynanmaya hazır hale getirildi.
+    this.ekranaYazdir()                  //oyunun ekrandaki durumunu güncellemek için ekranaYazdir fonksiyonu çağırıldı.
+    this.boardYazdir()                   //hücrelerin başlangıç durumunu gösteren bilgiler fonksiyon  çağırılarak güncellenir.
 
    }
 
