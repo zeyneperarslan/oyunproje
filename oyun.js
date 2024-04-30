@@ -41,7 +41,7 @@ class Game
      this.board = new Array(16).fill(null)  // 16 elemanlı dizi oluşturuldu ve bu dizinin tüm elemanlarını null değeri verildi.
 
    alert("Oyuna Hoşgeldin!!!!");   
-   alert("Aynı şekilleri üçlü olacak şekilde eşleştir puanı kazan!!")  //oyun başlamadan kullanıcıya oyun bilgisi verildi
+   alert("Aynı şekilleri üçlü olacak şekilde yatay/dikey/çapraz eşleştir puanı kazan!!")  //oyun başlamadan kullanıcıya oyun bilgisi verildi
 
 
 
