@@ -1,15 +1,15 @@
 class Game
 {
-   constructor(document)        //yapıcı metod tanımlandı böylelikle HTML dokumanına erişim sağlandı.
+   constructor(document)        
    { 
     this.document = document
-     this.turn = "✯"          //oyuna başlayan yıldız olarak belirlendi.
-     this.oyunskoru= {        //başlangıçtaki oyunskoru 0-0 olarak belirlendi
+     this.turn = "✯"          
+     this.oyunskoru= {        
        YILDIZ:0,
         KALP:0
      }
     
-     this.kazanmaDurumu = [   //tum olasi eslesmelerin kombinasyonlari yazildi.
+     this.kazanmaDurumu = [   
 
 [0, 1, 2], 
 [1, 2, 3],
@@ -38,17 +38,17 @@ class Game
 [7,10,13]
        ]
      
-     this.board = new Array(16).fill(null)         // 16 elemanlı dizi oluşturuldu ve bu dizinin tüm elemanlarını null değeri verildi.
+     this.board = new Array(16).fill(null)         
 
    alert("Oyuna Hoşgeldin!!!!");
-   alert("Aynı şekilleri üçlü olacak şekilde yatay/dikey/çapraz eşleştir puanı kazan!!")      //oyun başlamadan kullanıcıya oyun bilgisi verildi
+   alert("Aynı şekilleri üçlü olacak şekilde yatay/dikey/çapraz eşleştir puanı kazan!!")     
 
 
 
 
      this.document.querySelectorAll('.kutu').forEach ( kutu => {
-        kutu.addEventListener('click' , () => {               //kutu sınıfına ait ögeler seçildi ve tıklama olayı eklenir.
-            this.hucreDoldur(kutu)                            // hucreDoldur fonksiyonu çağırılır ve tıklanan hücrenin doldurulması gerçekleştirilir.
+        kutu.addEventListener('click' , () => {               
+            this.hucreDoldur(kutu)                           
 
 
         })
@@ -59,26 +59,26 @@ class Game
 
     }
 
-   nextTurn()  {                   //oynama sırasını kontrol eder.
+   nextTurn()  {                  
     
-    this.turn = this.turn === '✯' ? '♥' : '✯'    //this.turn değerini kontrol eder. Eğer this.turn değişkeni '✯' karakterine eşitse, değeri '♥' olarak değiştirir değilse, değeri '✯' olarak değiştirir.
-    this.ekranaYazdir()                         // ekranaYazdir metodu çağırılır.
+    this.turn = this.turn === '✯' ? '♥' : '✯'    
+    this.ekranaYazdir()                         
 
    }
 
    hucreDoldur(kutu) {
-      if (this.board[kutu.dataset.i] === null) {          //hücrelerin boş olup olmadığı kontrol edilir.
-          this.board[kutu.dataset.i] = this.turn;         //eğer hücre boşsa hamle yapılarak doldurulur.
+      if (this.board[kutu.dataset.i] === null) {          
+          this.board[kutu.dataset.i] = this.turn;       
           this.boardYazdir();
       } else {
-          alert('Bu hücre zaten dolu! Lütfen başka bir hücre seçin.');     //eğer doluysa oyunu oynayan kullanıcıya uyarı verilir.
+          alert('Bu hücre zaten dolu! Lütfen başka bir hücre seçin.');     
       }
   }
 
    boardYazdir () {
    
-    this.board.forEach((value, i) => {               // this.board dizisindeki her bir eleman için döngü oluşturuldu.Her elemanın değeri value değişkenine atanır,elemanın dizideki indeksi ise i değişkenine atanır.
- this.document.querySelector(`.kutu[data-i="${i}"]`).innerText = value   //kutu sınıfından olan ve data-i'si i ile eşleşen ögeyi seçer ve bu öğenin içeriğini value ile günceller.
+    this.board.forEach((value, i) => {               
+ this.document.querySelector(`.kutu[data-i="${i}"]`).innerText = value  
 
 
     })
@@ -90,10 +90,10 @@ class Game
 
    ekranaYazdir() {
 
-    this.document.getElementById('turn').innerText = this.turn    //id'si turn olan öğeyi seçti ve bu öğenin içeriğini this.turn değişkeninin değeriyle değiştirildi.
+    this.document.getElementById('turn').innerText = this.turn    
    }
 
-   skorDurumu(){       //güncel oyun skorunu oyunu oynayan kullanıclara göstermek amacıyla oluşturuldu.
+   skorDurumu(){       
   
     this.document.querySelector('.oyunskoru').innerText = ` ✯ ${this.oyunskoru.YILDIZ} - ${this.oyunskoru.KALP} ♥`
 
@@ -106,24 +106,23 @@ class Game
 
         const [c1,c2,c3] = kombinasyonlar
 
-        if(this.board[c1]=== '✯' && this.board[c2]=== '✯' && this.board[c3]=== '✯' ){    //yıldızların üçlü olarak eşleşip eşleşmediği kontrol edildi.
+        if(this.board[c1]=== '✯' && this.board[c2]=== '✯' && this.board[c3]=== '✯' ){    
             
             kazanan = 'YILDIZ'      //eğer eşleşiyorsa kazanan yıldız olarak belirlendi.
         }
 
-        else if(this.board[c1] === '♥' && this.board[c2] === '♥' && this.board[c3] === '♥'){    //kalplerin üçlü olarak eşleşip eşleşmediği kontrol edildi.
-
-            kazanan = 'KALP'    //eğer eşleşiyorsa kazanan yıldız olarak belirlendi.
+        else if(this.board[c1] === '♥' && this.board[c2] === '♥' && this.board[c3] === '♥'){    
+            kazanan = 'KALP'    
         }
 
     
      })
 
-     if(kazanan) {                         //kazanan olup olmadığı kontrol edildi.
-        this.oyunskoru[kazanan]++         // Eğer bir kazanan varsa, oyunskoru objesindeki ilgili oyuncunun skoru 1 arttırıldı.
-        this.skorDurumu()                // skorDurumu fonksiyonu çağırılarak skor durumu güncellendi.
-        alert(`KAZANAN: ${kazanan}`)   //kazanan bilgisi kullanıcıya verildi.
-        this.yenidenBasla()           // yenidenBasla fonksiyonu çağırılarak oyun yeniden başlatıldı.
+     if(kazanan) {                         
+        this.oyunskoru[kazanan]++        
+        this.skorDurumu()                
+        alert(`KAZANAN: ${kazanan}`)   
+        this.yenidenBasla()           
         
      }
 
@@ -136,22 +135,22 @@ class Game
 
    berabereDurum()
    {
-    if(!this.board.includes(null))     // boş hücre yoksa oyun berabere biter.
+    if(!this.board.includes(null))     
     {
         alert(`DURUM:BERABERE`)
-        this.yenidenBasla()          // kullanıcıya bilgi verildikten sonra oyun yeniden başlatıldı.
+        this.yenidenBasla()          
     }  
     else {
-        this.nextTurn()            // Eğer boş hücre varsa bir sonraki oyuncunun turunu başlatmak için nextTurn fonksiyonu çağırıldı
+        this.nextTurn()            
     
     }
    }
 
    yenidenBasla(){
-    this.turn = "✯"                          //Oyuna tekrardan başlayan "✯" olarak ayarlandı.
-   this.board = new Array(16).fill(null)    //oyundaki hücreler sıfırlandı.Yeniden oynanmaya hazır hale getirildi.
-    this.ekranaYazdir()                    //oyunun ekrandaki durumunu güncellemek için ekranaYazdir fonksiyonu çağırıldı.
-    this.boardYazdir()                    //hücrelerin başlangıç durumunu gösteren bilgiler fonksiyon  çağırılarak güncellenir.
+    this.turn = "✯"                 
+   this.board = new Array(16).fill(null) 
+    this.ekranaYazdir()                   
+    this.boardYazdir()                  
 
    }
 
